@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import HeaderComponent from '@/components/header/HeaderComponent.vue';
-import FooterComponent from '@/components/footer/FooterComponent.vue';
-import KnightCardsComponent from '@/components/knight-cards/KnightCardsComponent.vue';
-import { ApiService, type SearchKnightsResponse } from './api/ApiService';
+import { ApiService, type SearchKnightsResponse } from '@/api/ApiService';
+import type { KnightEntity } from '@/entities/KnightEntity';
+import { KnightMapper } from '@/mappers/KnightMapper';
 import { onMounted, ref, type Ref } from 'vue';
-import type { KnightEntity } from './entities/KnightEntity';
-import { KnightMapper } from './mappers/KnightMapper';
+import KnightCardComponent from '../knight-card/KnightCardComponent.vue';
+
+defineProps<{
+	knights: KnightEntity[];
+}>();
 
 const apiService = ApiService.getInstance();
 
@@ -42,12 +44,18 @@ onMounted(async () => {
 });
 </script>
 
+<style lang="scss">
+@import '_knight-cards.styles';
+</style>
+
 <template>
-	<v-app>
-		<HeaderComponent />
-		<v-main>
-			<KnightCardsComponent :knights="searchedKnights" />
-		</v-main>
-		<FooterComponent />
-	</v-app>
+	<section class="knight-cards">
+		<v-container>
+			<v-row>
+				<v-col v-for="knight in knights" :key="knight.id">
+					<KnightCardComponent :knight="knight" />
+				</v-col>
+			</v-row>
+		</v-container>
+	</section>
 </template>

@@ -1,8 +1,4 @@
-import type {
-	Attributes,
-	KnightEntity,
-	KnightProps,
-} from '@/entities/KnightEntity';
+import type { Attributes, KnightProps, Weapon } from '@/entities/KnightEntity';
 import type { AxiosInstance } from 'axios';
 import axios from 'axios';
 
@@ -24,19 +20,21 @@ export type CreateKnightResponse = {
 	};
 };
 
+export type CreatedKnight = {
+	id: string;
+	name: string;
+	nickname: string;
+	birthday: string;
+	weapons: Weapon[];
+	attributes: Attributes;
+	keyAttribute: keyof Attributes;
+	heroifiedAt?: string;
+	createdAt: string;
+	updatedAt?: string;
+};
+
 export type GetKnightResponse = {
-	data: {
-		id: string;
-		name: string;
-		nickname: string;
-		birthday: string;
-		weapons: string;
-		attributes: string;
-		keyAttribute: keyof Attributes;
-		heroifiedAt?: string;
-		createdAt: string;
-		updatedAt?: string;
-	};
+	data: CreatedKnight;
 };
 
 export type UpdateKnightProps = {
@@ -58,7 +56,7 @@ export type SearchKnightsProps = {
 };
 
 export type SearchKnightsResponse = {
-	data: KnightEntity[];
+	data: [CreatedKnight];
 	meta: {
 		currentPage: number;
 		perPage: number;
@@ -84,6 +82,7 @@ type Endpoints = {
 };
 
 const endpoints: Endpoints = {
+	localhost: 'http://localhost:3000',
 	default: location.origin,
 	get(hostname: string) {
 		const value = this[hostname];
@@ -181,7 +180,7 @@ export class ApiService {
 	}
 
 	async searchKnights(
-		props: SearchKnightsProps,
+		props: SearchKnightsProps = {},
 	): Promise<SearchKnightsResponse | RequestError> {
 		try {
 			const queryParams = Object.entries(props)
@@ -189,7 +188,7 @@ export class ApiService {
 				.join('&');
 
 			const { data } = await this.axiosInstance.get(
-				`/v1/knights?${queryParams}`,
+				`/v1/knights${queryParams ? '?' + queryParams : ''}`,
 			);
 
 			if (data.error) throw new Error();

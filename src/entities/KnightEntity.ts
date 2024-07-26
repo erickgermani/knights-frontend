@@ -47,7 +47,7 @@ export class KnightEntity {
 	readonly attributes: Attributes;
 	readonly keyAttribute: keyof Attributes;
 	readonly heroifiedAt?: Date;
-	readonly createdAt?: Date;
+	readonly createdAt: Date;
 	readonly updatedAt?: Date;
 	private readonly age: number;
 	private readonly attack: number;
@@ -82,6 +82,18 @@ export class KnightEntity {
 			createdAt: this.createdAt,
 			updatedAt: this.updatedAt,
 		};
+	}
+
+	getAge() {
+		return this.age;
+	}
+
+	getAttack() {
+		return this.attack;
+	}
+
+	getExperience() {
+		return this.experience;
 	}
 
 	private calculateAge(reference: Date = new Date()) {
@@ -150,5 +162,11 @@ export class KnightEntity {
 		const experience = Math.floor((this.age - 7) * Math.pow(22, 1.45));
 
 		return experience;
+	}
+}
+
+export class KnightEntityFactory {
+	static create(props: KnightProps): KnightEntity {
+		return new KnightEntity(props);
 	}
 }
