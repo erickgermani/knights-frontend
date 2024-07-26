@@ -1,0 +1,204 @@
+import type {
+	Attributes,
+	KnightEntity,
+	KnightProps,
+} from '@/entities/KnightEntity';
+import type { AxiosInstance } from 'axios';
+import axios from 'axios';
+
+export type CreateKnightProps = Omit<
+	KnightProps,
+	'id' | 'heroifiedAt' | 'createdAt' | 'updatedAt'
+>;
+
+export type CreateKnightResponse = {
+	data: {
+		id: string;
+		name: string;
+		nickname: string;
+		birthday: string;
+		weapons: string;
+		attributes: string;
+		keyAttribute: keyof Attributes;
+		createdAt: string;
+	};
+};
+
+export type GetKnightResponse = {
+	data: {
+		id: string;
+		name: string;
+		nickname: string;
+		birthday: string;
+		weapons: string;
+		attributes: string;
+		keyAttribute: keyof Attributes;
+		heroifiedAt?: string;
+		createdAt: string;
+		updatedAt?: string;
+	};
+};
+
+export type UpdateKnightProps = {
+	id: string;
+	nickname: string;
+};
+
+export type UpdateKnightResponse = GetKnightResponse;
+
+type SortDirection = 'asc' | 'desc';
+
+export type SearchKnightsProps = {
+	page?: number;
+	perPage?: number;
+	sort?: string;
+	sortDir?: SortDirection;
+	filterBy?: string;
+	filter?: string;
+};
+
+export type SearchKnightsResponse = {
+	data: KnightEntity[];
+	meta: {
+		currentPage: number;
+		perPage: number;
+		lastPage: number;
+		total: number;
+	};
+};
+
+export type RequestError = {
+	error: boolean;
+};
+
+export type ResponseError = {
+	statusCode: number;
+	error: string;
+	message: string;
+};
+
+type Endpoints = {
+	[key: string]: string | ((hostname: string) => string);
+	default: string;
+	get: (hostname: string) => string;
+};
+
+const endpoints: Endpoints = {
+	default: location.origin,
+	get(hostname: string) {
+		const value = this[hostname];
+
+		if (value && typeof value === 'string') return value;
+
+		return this.default;
+	},
+};
+
+const { hostname } = location;
+
+export class ApiService {
+	private readonly axiosInstance: AxiosInstance;
+
+	private readonly endpoint = endpoints.get(hostname);
+
+	private static instance: ApiService;
+
+	private constructor() {
+		this.axiosInstance = axios.create({
+			baseURL: this.endpoint,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+	}
+
+	static getInstance(): ApiService {
+		if (!ApiService.instance) ApiService.instance = new ApiService();
+
+		return ApiService.instance;
+	}
+
+	async createKnight(
+		props: CreateKnightProps,
+	): Promise<CreateKnightResponse | RequestError> {
+		try {
+			const { data } = await this.axiosInstance.post('/v1/knights', props);
+
+			if (data.error) throw new Error();
+
+			return data;
+		} catch {
+			return {
+				error: true,
+			};
+		}
+	}
+
+	async getKnight(id: string): Promise<GetKnightResponse | RequestError> {
+		try {
+			const { data } = await this.axiosInstance.get(`/v1/knights/${id}`);
+
+			if (data.error) throw new Error();
+
+			return data;
+		} catch {
+			return {
+				error: true,
+			};
+		}
+	}
+
+	async updateKnight(
+		props: UpdateKnightProps,
+	): Promise<UpdateKnightResponse | RequestError> {
+		try {
+			const { data } = await this.axiosInstance.put(`/v1/knights/${props.id}`, {
+				nickname: props.nickname,
+			});
+
+			if (data.error) throw new Error();
+
+			return data;
+		} catch {
+			return {
+				error: true,
+			};
+		}
+	}
+
+	async heroifyKnight(id: string): Promise<void | RequestError> {
+		try {
+			const { data } = await this.axiosInstance.delete(`/v1/knights/${id}`);
+
+			if (data.error) throw new Error();
+
+			return data;
+		} catch {
+			return {
+				error: true,
+			};
+		}
+	}
+
+	async searchKnights(
+		props: SearchKnightsProps,
+	): Promise<SearchKnightsResponse | RequestError> {
+		try {
+			const queryParams = Object.entries(props)
+				.map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+				.join('&');
+
+			const { data } = await this.axiosInstance.get(
+				`/v1/knights?${queryParams}`,
+			);
+
+			if (data.error) throw new Error();
+
+			return data;
+		} catch {
+			return {
+				error: true,
+			};
+		}
+	}
+}
