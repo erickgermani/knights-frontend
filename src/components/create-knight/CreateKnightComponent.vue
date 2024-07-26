@@ -1,11 +1,31 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css';
+import { convertDate } from '@/utils/convertDate';
 
 const dialog = ref(false);
+
+const date = ref();
+
+const attributes = [
+	'charisma',
+	'constitution',
+	'dexterity',
+	'intelligence',
+	'strength',
+	'wisdom',
+];
+
+function formatDate(date: Date) {
+	const convertedString = convertDate(date);
+
+	return convertedString;
+}
 </script>
 
 <style lang="scss">
-@import '_create-knight.styles.scss';
+@import '_create-knight.styles';
 </style>
 
 <template>
@@ -21,49 +41,46 @@ const dialog = ref(false);
 					>
 				</template>
 
-				<v-card prepend-icon="mdi-account" title="User Profile">
+				<v-card prepend-icon="mdi-account" title="Novo cavaleiro">
 					<v-card-text>
 						<v-row dense>
-							<v-col cols="12" md="4" sm="6">
-								<v-text-field label="First name*" required></v-text-field>
-							</v-col>
-
-							<v-col cols="12" md="4" sm="6">
+							<v-col cols="12" md="12" sm="6">
 								<v-text-field
-									label="Last name*"
-									persistent-hint
+									label="Name*"
 									required
+									max-length="255"
+									name="name"
 								></v-text-field>
 							</v-col>
 
 							<v-col cols="12" sm="6">
-								<v-select
-									:items="['0-17', '18-29', '30-54', '54+']"
-									label="Age*"
+								<VueDatePicker
+									v-model="date"
+									:flow="['year', 'month', 'calendar']"
 									required
-								></v-select>
+									placeholder="Data de nascimento"
+									name="birthday"
+									auto-apply
+									:max-date="new Date()"
+									prevent-min-max-navigation
+									partial-flow
+									:hide-navigation="['hours', 'minutes', 'seconds', 'time']"
+									:format="formatDate"
+								></VueDatePicker>
 							</v-col>
 
 							<v-col cols="12" sm="6">
 								<v-autocomplete
-									:items="[
-										'Skiing',
-										'Ice hockey',
-										'Soccer',
-										'Basketball',
-										'Hockey',
-										'Reading',
-										'Writing',
-										'Coding',
-										'Basejump',
-									]"
+									:items="attributes"
 									label="Atributo chave"
+									required
+									name="keyAttribute"
 								></v-autocomplete>
 							</v-col>
 						</v-row>
 
 						<small class="text-caption text-medium-emphasis"
-							>*indicates required field</small
+							>* indica campos obrigatórios</small
 						>
 					</v-card-text>
 
@@ -72,11 +89,15 @@ const dialog = ref(false);
 					<v-card-actions>
 						<v-spacer></v-spacer>
 
-						<v-btn text="Close" variant="plain" @click="dialog = false"></v-btn>
+						<v-btn
+							text="Fechar"
+							variant="plain"
+							@click="dialog = false"
+						></v-btn>
 
 						<v-btn
 							color="primary"
-							text="Save"
+							text="Criar"
 							variant="tonal"
 							@click="dialog = false"
 						></v-btn>

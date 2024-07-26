@@ -1,2 +1,18 @@
 .create-knight {
 }
+
+.v-overlay-container {
+	.v-overlay__content {
+		.v-card {
+			overflow: unset;
+			overflow-wrap: unset;
+			&-text {
+				.dp__main {
+					.dp__input {
+						height: 56px;
+					}
+				}
+			}
+		}
+	}
+}

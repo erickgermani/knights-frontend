@@ -22,15 +22,17 @@ defineProps<{
 				}}</span>
 			</template>
 			<template v-slot:subtitle>
-				<p>Criado em: {{ convertDate(knight.createdAt) }}</p>
+				<p>Criado em: {{ convertDate(knight.createdAt, true) }}</p>
 				<p>
 					Atualizado em:
-					{{ knight.updatedAt ? `${convertDate(knight.createdAt)}` : '-' }}
+					{{
+						knight.updatedAt ? `${convertDate(knight.createdAt, true)}` : '-'
+					}}
 				</p>
 			</template>
 			<template v-slot:prepend>
 				<component
-					:is="knight.getAge() < 7 ? SwordIcon : SwordCrossIcon"
+					:is="knight.getAge() <= 7 ? SwordIcon : SwordCrossIcon"
 					width="48px"
 				/>
 			</template>
