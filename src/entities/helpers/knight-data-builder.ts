@@ -8,6 +8,7 @@ type Props = {
 	weapons?: Array<Weapon>;
 	attributes?: Attributes;
 	keyAttribute?: keyof Attributes;
+	createdAt?: Date;
 };
 
 const attributeKeys = [
@@ -71,5 +72,6 @@ export function KnightDataBuilder(props: Props = {}): KnightProps {
 			}),
 		},
 		keyAttribute: props.keyAttribute ?? getRandomAttributeKey(),
+		createdAt: props.createdAt ?? new Date(),
 	};
 }

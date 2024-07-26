@@ -2,11 +2,10 @@ import {
 	ApiService,
 	type CreateKnightResponse,
 	type GetKnightResponse,
-	type RequestError,
 	type SearchKnightsResponse,
 	type UpdateKnightResponse,
 } from '@/api/ApiService';
-import { KnightDataBuilder } from '@/entities/testing/helpers/knight-data-builder';
+import { KnightDataBuilder } from '@/entities/helpers/knight-data-builder';
 import { describe, test, expect } from 'vitest';
 
 describe('ApiService tests', () => {
@@ -59,7 +58,7 @@ describe('ApiService tests', () => {
 
 			const updateKnightProps = {
 				id: knightId,
-				nickname: 'new nickname' + new Date().toISOString(),
+				nickname: 'new nickname ' + new Date().toISOString(),
 			};
 
 			const response = (await sut.updateKnight(
