@@ -127,8 +127,17 @@ export class KnightEntity {
 	}
 
 	private calculateAttack() {
-		const attributeMod = this.getAttributeMod() ?? 0;
-		const weaponMod = this.getEquippedWeapon()?.mod ?? 0;
+		const getAttributeModResponse = this.getAttributeMod();
+
+		const attributeMod =
+			getAttributeModResponse !== undefined ? getAttributeModResponse : -2;
+
+		const getEquippedWeaponResponse = this.getEquippedWeapon();
+
+		const weaponMod =
+			getEquippedWeaponResponse !== undefined
+				? getEquippedWeaponResponse.mod
+				: -2;
 
 		const attack = KnightEntity.INITIAL_ATTACK + attributeMod + weaponMod;
 
