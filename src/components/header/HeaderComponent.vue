@@ -7,7 +7,7 @@
 <template>
 	<header>
 		<v-container>
-			<div><a href="/">Knights</a></div>
+			<div><a href="/">Knights Challenge</a></div>
 		</v-container>
 	</header>
 </template>
