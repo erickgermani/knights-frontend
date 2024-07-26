@@ -30,8 +30,14 @@ function onClick(link: string) {
 			>
 			</v-btn>
 			<v-col class="text-center mt-4" cols="12">
-				{{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+				{{ new Date().getFullYear() }} — <strong>Knights Challenge</strong>
 			</v-col>
+			<p>
+				Desenvolvido por
+				<a href="https://www.linkedin.com/in/erick-germani/" target="_blank"
+					>Erick Germani</a
+				>
+			</p>
 		</v-row>
 	</v-footer>
 </template>

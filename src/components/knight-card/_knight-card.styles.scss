@@ -1,14 +1,14 @@
 .knight-card {
 	.v-card {
-		width: 320px !important;
 		&-subtitle {
 			max-width: 230px;
 			text-overflow: unset;
 			white-space: wrap;
 		}
 		&-text {
-			.knight-attribute {
-				text-transform: capitalize;
+			padding: 2px 1px 0 !important;
+			table {
+				--v-table-row-height: 44px;
 			}
 		}
 	}

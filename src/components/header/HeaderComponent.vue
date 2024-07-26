@@ -6,6 +6,8 @@
 
 <template>
 	<header>
-		<div><a href="/">Knights</a></div>
+		<v-container>
+			<div><a href="/">Knights</a></div>
+		</v-container>
 	</header>
 </template>

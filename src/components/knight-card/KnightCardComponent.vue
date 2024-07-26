@@ -14,7 +14,7 @@ defineProps<{
 
 <template>
 	<div class="knight-card">
-		<v-card class="mx-auto" width="400">
+		<v-card class="mx-auto" width="320">
 			<template v-slot:title>
 				<span class="font-weight-black">{{ knight.name }}</span>
 			</template>
@@ -28,20 +28,34 @@ defineProps<{
 			<template v-slot:prepend><HorseHumanIcon width="48px" /></template>
 
 			<v-card-text class="bg-surface-light pt-4">
-				<p class="knight-name"><strong>Nome:</strong> {{ knight.name }}</p>
-				<p class="knight-age"><strong>Idade:</strong> {{ knight.getAge() }}</p>
-				<p class="knight-weapons">
-					<strong>Armas:</strong> {{ knight.weapons.length }}
-				</p>
-				<p class="knight-attribute">
-					<strong>Atributo:</strong> {{ knight.keyAttribute }}
-				</p>
-				<p class="knight-attack">
-					<strong>Ataque:</strong> {{ knight.getAttack() }}
-				</p>
-				<p class="knight-experience">
-					<strong>Exp:</strong> {{ knight.getExperience() }}
-				</p>
+				<v-table>
+					<tbody>
+						<tr>
+							<td><strong>Nome</strong></td>
+							<td>{{ knight.name }}</td>
+						</tr>
+						<tr>
+							<td><strong>Idade</strong></td>
+							<td>{{ knight.getAge() }}</td>
+						</tr>
+						<tr>
+							<td><strong>Armas</strong></td>
+							<td>{{ knight.weapons.length }}</td>
+						</tr>
+						<tr>
+							<td><strong>Atributo</strong></td>
+							<td>{{ knight.keyAttribute }}</td>
+						</tr>
+						<tr>
+							<td><strong>Ataque</strong></td>
+							<td>{{ knight.getAttack() }}</td>
+						</tr>
+						<tr>
+							<td><strong>Exp</strong></td>
+							<td>{{ knight.getExperience() }}</td>
+						</tr>
+					</tbody>
+				</v-table>
 			</v-card-text>
 		</v-card>
 	</div>
