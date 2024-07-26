@@ -3,6 +3,7 @@ import HeaderComponent from '@/components/header/HeaderComponent.vue';
 import FooterComponent from '@/components/footer/FooterComponent.vue';
 import SearchComponent from './components/search/SearchComponent.vue';
 import PaginationComponent from './components/pagination/PaginationComponent.vue';
+import CreateKnightComponent from '@/components/create-knight/CreateKnightComponent.vue';
 import KnightCardsComponent from '@/components/knight-cards/KnightCardsComponent.vue';
 import {
 	ApiService,
@@ -22,8 +23,6 @@ const totalOfPages = ref(1);
 const searchByName: Ref<string> = ref('');
 
 async function setSearchByName(value: string) {
-	console.log('value :>> ', value);
-
 	searchByName.value = value;
 	page.value = 1;
 
@@ -69,8 +68,12 @@ async function searchKnights(props: SearchKnightsProps = {}) {
 	}
 }
 
+const renderCreateKnightButton = ref(false);
+
 onMounted(async () => {
 	await searchKnights();
+
+	renderCreateKnightButton.value = true;
 });
 </script>
 
@@ -97,4 +100,7 @@ onMounted(async () => {
 			indeterminate
 		></v-progress-circular>
 	</v-overlay>
+	<Teleport v-if="renderCreateKnightButton" to=".create-knight">
+		<CreateKnightComponent />
+	</Teleport>
 </template>

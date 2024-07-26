@@ -1,5 +1,13 @@
 .knight-card {
 	.v-card {
+		width: 320px;
+		@media (max-width: 695px) {
+			width: 100vw;
+			max-width: 100%;
+		}
+		&-item {
+			grid-template-columns: unset;
+		}
 		&-subtitle {
 			max-width: 230px;
 			text-overflow: unset;

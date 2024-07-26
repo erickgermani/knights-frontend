@@ -1,8 +1,12 @@
 header {
 	padding: 24px;
-	div {
-		a {
-			font-size: 1.3em;
+	> div {
+		display: flex;
+		justify-content: space-between;
+		.logo {
+			a {
+				font-size: 1.3em;
+			}
 		}
 	}
 }

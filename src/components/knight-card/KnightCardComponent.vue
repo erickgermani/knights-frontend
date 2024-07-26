@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { KnightEntity } from '@/entities/KnightEntity';
 import { convertDate } from '@/utils/convertDate';
-import HorseHumanIcon from '../icons/HorseHumanIcon.vue';
+import SwordIcon from '../icons/SwordIcon.vue';
+import SwordCrossIcon from '../icons/SwordCrossIcon.vue';
 
 defineProps<{
 	knight: KnightEntity;
@@ -14,9 +15,11 @@ defineProps<{
 
 <template>
 	<div class="knight-card">
-		<v-card class="mx-auto" width="320">
+		<v-card class="mx-auto">
 			<template v-slot:title>
-				<span class="font-weight-black">{{ knight.name }}</span>
+				<span class="font-weight-black" :title="knight.name">{{
+					knight.name
+				}}</span>
 			</template>
 			<template v-slot:subtitle>
 				<p>Criado em: {{ convertDate(knight.createdAt) }}</p>
@@ -25,14 +28,19 @@ defineProps<{
 					{{ knight.updatedAt ? `${convertDate(knight.createdAt)}` : '-' }}
 				</p>
 			</template>
-			<template v-slot:prepend><HorseHumanIcon width="48px" /></template>
+			<template v-slot:prepend>
+				<component
+					:is="knight.getAge() < 7 ? SwordIcon : SwordCrossIcon"
+					width="48px"
+				/>
+			</template>
 
 			<v-card-text class="bg-surface-light pt-4">
 				<v-table>
 					<tbody>
 						<tr>
-							<td><strong>Nome</strong></td>
-							<td>{{ knight.name }}</td>
+							<td><strong>Apelido</strong></td>
+							<td :title="knight.nickname">{{ knight.nickname }}</td>
 						</tr>
 						<tr>
 							<td><strong>Idade</strong></td>
