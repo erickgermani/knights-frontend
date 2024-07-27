@@ -6,7 +6,7 @@ import { onMounted, ref, type Ref } from 'vue';
 import KnightCardComponent from '../knight-card/KnightCardComponent.vue';
 
 defineProps<{
-	knights: KnightEntity[];
+	knights: KnightEntity[] | undefined;
 }>();
 
 const apiService = ApiService.getInstance();
@@ -51,7 +51,16 @@ onMounted(async () => {
 <template>
 	<section class="knight-cards">
 		<v-container>
-			<v-row>
+			<v-row v-if="knights === undefined" class="skeletons">
+				<v-col v-for="i in 15" :key="i">
+					<v-skeleton-loader
+						:elevation="12"
+						:type="['card-avatar', 'card']"
+						class="mx-auto"
+					></v-skeleton-loader>
+				</v-col>
+			</v-row>
+			<v-row v-else>
 				<v-col v-for="knight in knights" :key="knight.id">
 					<KnightCardComponent :knight="knight" />
 				</v-col>

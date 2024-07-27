@@ -1,12 +1,30 @@
 <script setup lang="ts">
 import type { KnightEntity } from '@/entities/KnightEntity';
-import { ref } from 'vue';
+import { inject, ref, watch, type Ref } from 'vue';
 
 const props = defineProps<{
 	knight: KnightEntity;
 }>();
 
 const dialog = ref(false);
+
+const knightToUpdate: Ref<KnightEntity | undefined> | undefined =
+	inject('knightToUpdate');
+
+const knightToHeroify: Ref<KnightEntity | undefined> | undefined =
+	inject('knightToHeroify');
+
+if (knightToHeroify) {
+	watch(knightToHeroify, () => {
+		if (knightToHeroify.value) return;
+
+		dialog.value = false;
+	});
+}
+
+function handleConfirm() {
+	if (knightToHeroify) knightToHeroify.value = props.knight;
+}
 </script>
 
 <style lang="scss">
@@ -30,7 +48,7 @@ const dialog = ref(false);
 
 						<v-btn color="red" @click="dialog = false"> Cancelar </v-btn>
 
-						<v-btn color="blue" @click="dialog = false"> Confirmar </v-btn>
+						<v-btn color="blue" @click="handleConfirm"> Confirmar </v-btn>
 					</template>
 				</v-card>
 			</v-dialog>

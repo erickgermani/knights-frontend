@@ -1,5 +1,18 @@
 .knight-cards {
-	.v-col {
-		flex-grow: initial;
+	.v-container {
+		.v-row {
+			&.skeletons {
+				.v-skeleton-loader {
+					width: 320px;
+					@media (max-width: 695px) {
+						width: 100vw;
+						max-width: 90%;
+					}
+				}
+			}
+			.v-col {
+				flex-grow: initial;
+			}
+		}
 	}
 }

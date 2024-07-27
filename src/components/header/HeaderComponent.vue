@@ -5,7 +5,7 @@
 </style>
 
 <template>
-	<header>
+	<header class="header">
 		<v-container>
 			<div class="logo"><a href="/" class="honk">KNIGHTS CHALLENGE</a></div>
 		</v-container>
