@@ -1,6 +1,7 @@
 .knight-card {
 	.v-card {
 		width: 320px;
+		border-radius: 16px;
 		@media (max-width: 695px) {
 			width: 100vw;
 			max-width: 100%;

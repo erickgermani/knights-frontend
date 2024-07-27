@@ -13,6 +13,7 @@ import {
 import { onMounted, ref, type Ref } from 'vue';
 import type { KnightEntity } from './entities/KnightEntity';
 import { KnightMapper } from './mappers/KnightMapper';
+import { scrollToTarget } from './utils/scrollToTarget';
 
 const apiService = ApiService.getInstance();
 
@@ -26,7 +27,7 @@ async function setSearchByName(value: string) {
 	searchByName.value = value;
 	page.value = 1;
 
-	await searchKnights({ page: page.value, filterBy: searchByName.value });
+	await searchKnights({ page: page.value, filterBy: searchByName.value }, true);
 }
 
 const page = ref(1);
@@ -34,7 +35,7 @@ const page = ref(1);
 async function setPage(value: number) {
 	page.value = value;
 
-	await searchKnights({ page: page.value, filterBy: searchByName.value });
+	await searchKnights({ page: page.value, filterBy: searchByName.value }, true);
 }
 
 let searchKnightsResult: SearchKnightsResponse;
@@ -43,7 +44,7 @@ const searchedKnights: Ref<KnightEntity[]> = ref([]);
 
 const searchKnightsFailed = ref(false);
 
-async function searchKnights(props: SearchKnightsProps = {}) {
+async function searchKnights(props: SearchKnightsProps = {}, scroll = false) {
 	searchKnightsFailed.value = false;
 	loading.value = true;
 
@@ -65,6 +66,8 @@ async function searchKnights(props: SearchKnightsProps = {}) {
 		searchKnightsFailed.value = true;
 	} finally {
 		loading.value = false;
+
+		if (scroll) setTimeout(() => scrollToTarget('.divider'), 250);
 	}
 }
 
@@ -80,7 +83,7 @@ onMounted(async () => {
 <template>
 	<v-app>
 		<HeaderComponent />
-		<v-divider class="mb-8" />
+		<v-divider class="mb-8 divider" />
 		<v-main>
 			<SearchComponent :set-search-by-name="setSearchByName" />
 			<KnightCardsComponent :knights="searchedKnights" />

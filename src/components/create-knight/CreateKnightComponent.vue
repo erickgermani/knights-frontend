@@ -50,6 +50,7 @@ function formatDate(date: Date) {
 									required
 									max-length="255"
 									name="name"
+									variant="solo-filled"
 								></v-text-field>
 							</v-col>
 
@@ -75,6 +76,7 @@ function formatDate(date: Date) {
 									label="Atributo chave"
 									required
 									name="keyAttribute"
+									variant="solo-filled"
 								></v-autocomplete>
 							</v-col>
 						</v-row>
