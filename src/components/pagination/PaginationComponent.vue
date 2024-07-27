@@ -9,6 +9,10 @@ function onUpdate(page: number) {
 }
 </script>
 
+<style lang="scss">
+@import '_pagination.styles';
+</style>
+
 <template>
 	<section class="pagination">
 		<v-pagination

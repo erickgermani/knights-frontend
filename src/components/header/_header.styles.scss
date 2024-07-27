@@ -2,10 +2,13 @@ header {
 	padding: 0 24px;
 	> div {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		.logo {
 			a {
-				font-size: 1.3em;
+				display: flex;
+				font-size: 5em;
+				text-align: center;
+				line-height: 1;
 			}
 		}
 	}

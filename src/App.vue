@@ -83,7 +83,7 @@ onMounted(async () => {
 <template>
 	<v-app>
 		<HeaderComponent />
-		<v-divider class="mb-8 divider" />
+		<v-divider class="divider" />
 		<v-main>
 			<SearchComponent :set-search-by-name="setSearchByName" />
 			<KnightCardsComponent :knights="searchedKnights" />
@@ -103,7 +103,7 @@ onMounted(async () => {
 			indeterminate
 		></v-progress-circular>
 	</v-overlay>
-	<Teleport v-if="renderCreateKnightButton" to=".create-knight">
+	<Teleport v-if="renderCreateKnightButton" to=".create-knight-container">
 		<CreateKnightComponent />
 	</Teleport>
 </template>

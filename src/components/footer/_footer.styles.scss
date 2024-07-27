@@ -1,3 +1,25 @@
-footer {
-	margin-top: 24px;
+.footer {
+	background: linear-gradient(
+		0deg,
+		rgb(227 32 146) 14%,
+		rgba(219, 167, 31, 1) 100%
+	);
+	color: #fff;
+	.v-row {
+		.v-btn {
+			.v-icon {
+				--v-icon-size-multiplier: 2;
+				transition: color 0.3s;
+				&:hover {
+					color: #000;
+				}
+			}
+		}
+	}
+	p {
+		a {
+			font-weight: 700;
+			color: #fff;
+		}
+	}
 }

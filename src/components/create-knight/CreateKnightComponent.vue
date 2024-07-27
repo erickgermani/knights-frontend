@@ -35,7 +35,7 @@ function formatDate(date: Date) {
 				<template v-slot:activator="{ props: activatorProps }">
 					<v-btn
 						prepend-icon="mdi-plus-circle"
-						color="green"
+						color="pink-darken-1"
 						v-bind="activatorProps"
 						>Criar cavaleiro</v-btn
 					>

@@ -31,15 +31,15 @@ async function handleSubmit(event: SubmitEvent) {
 					name="name"
 					clearable
 				>
-					<template v-slot:append-inner><MagnifyIcon height="24" /></template>
 				</v-text-field>
 				<v-btn
 					class="search-submit"
 					variant="elevated"
-					color="blue"
+					color="amber-lighten-2"
 					type="submit"
 					>Buscar</v-btn
 				>
+				<div class="create-knight-container"></div>
 			</v-form>
 		</v-container>
 	</section>

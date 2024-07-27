@@ -4,6 +4,10 @@ const btns = [
 		icon: 'mdi-linkedin',
 		link: 'https://www.linkedin.com/in/erick-germani/',
 	},
+	{
+		icon: 'mdi-github',
+		link: 'https://github.com/erickgermani/',
+	},
 ];
 
 function onClick(link: string) {
@@ -16,7 +20,7 @@ function onClick(link: string) {
 </style>
 
 <template>
-	<v-footer class="bg-grey-lighten-1">
+	<v-footer class="footer">
 		<v-row justify="center" no-gutters>
 			<v-btn
 				v-for="btn in btns"
@@ -34,9 +38,7 @@ function onClick(link: string) {
 			</v-col>
 			<p>
 				Desenvolvido por
-				<a href="https://www.linkedin.com/in/erick-germani/" target="_blank"
-					>Erick Germani</a
-				>
+				<strong>Erick Germani</strong>
 			</p>
 		</v-row>
 	</v-footer>

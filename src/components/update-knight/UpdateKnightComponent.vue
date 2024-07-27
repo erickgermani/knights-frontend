@@ -6,37 +6,19 @@ const props = defineProps<{
 	knight: KnightEntity;
 }>();
 
-const emits = defineEmits(['heroifyKnight']);
-
 const dialog = ref(false);
-
-function handleConfirm() {
-	emits('heroifyKnight', props.knight);
-
-	dialog.value = false;
-}
 </script>
 
 <style lang="scss">
-@import '_heroify-knight.styles';
+@import '_update-knight.styles';
 </style>
 
 <template>
-	<div class="heroify-knight mx-auto">
+	<div class="update-knight mx-auto">
 		<div class="text-center pa-4">
 			<v-dialog v-model="dialog" max-width="400">
 				<template v-slot:activator="{ props: activatorProps }">
-					<v-btn
-						v-bind="activatorProps"
-						variant="elevated"
-						color="deep-purple"
-						:disabled="knight.heroifiedAt !== undefined"
-						:title="
-							knight.heroifiedAt && `${knight.name} já está no Hall dos Heróis`
-						"
-					>
-						Heroificar
-					</v-btn>
+					<v-btn v-bind="activatorProps"> Atualizar </v-btn>
 				</template>
 
 				<v-card
@@ -48,7 +30,7 @@ function handleConfirm() {
 
 						<v-btn color="red" @click="dialog = false"> Cancelar </v-btn>
 
-						<v-btn color="blue" @click="handleConfirm"> Confirmar </v-btn>
+						<v-btn color="blue" @click="dialog = false"> Confirmar </v-btn>
 					</template>
 				</v-card>
 			</v-dialog>

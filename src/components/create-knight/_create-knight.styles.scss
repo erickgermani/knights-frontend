@@ -1,4 +1,29 @@
-.create-knight {
+.create-knight-container {
+	button {
+		height: 56px !important;
+		margin-bottom: 22px;
+		@media (max-width: 768px) {
+			position: fixed;
+			bottom: 24px;
+			right: 24px;
+			z-index: 999;
+			border-radius: 24px;
+			font-weight: 800;
+			span {
+				display: none;
+			}
+			.v-btn__prepend {
+				display: flex;
+				margin-right: 0;
+				i {
+					font-size: 24px;
+				}
+			}
+			.v-btn__content {
+				font-size: 0;
+			}
+		}
+	}
 }
 
 .v-overlay-container {

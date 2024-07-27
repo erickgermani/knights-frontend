@@ -2,12 +2,24 @@
 	.v-card {
 		width: 320px;
 		border-radius: 16px;
+		background: radial-gradient(
+			circle,
+			rgba(49, 34, 22, 1) 55%,
+			rgba(0, 0, 0, 1) 100%
+		);
 		@media (max-width: 695px) {
 			width: 100vw;
-			max-width: 100%;
+			max-width: 90%;
 		}
 		&-item {
 			grid-template-columns: unset;
+			p,
+			span {
+				color: #fff;
+			}
+			svg {
+				fill: #fff;
+			}
 		}
 		&-subtitle {
 			max-width: 230px;
@@ -16,8 +28,15 @@
 		}
 		&-text {
 			padding: 2px 1px 0 !important;
-			table {
-				--v-table-row-height: 44px;
+			background: #ae9f91;
+			border-radius: 8px;
+			padding: 0px !important;
+			margin: 5px 20px !important;
+			.v-table {
+				background: #ae9f91;
+				table {
+					--v-table-row-height: 44px;
+				}
 			}
 		}
 	}
