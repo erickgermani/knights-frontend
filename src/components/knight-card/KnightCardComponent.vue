@@ -3,10 +3,22 @@ import type { KnightEntity } from '@/entities/KnightEntity';
 import { convertDate } from '@/utils/convertDate';
 import SwordIcon from '../icons/SwordIcon.vue';
 import SwordCrossIcon from '../icons/SwordCrossIcon.vue';
+import HeroifyKnightComponent from '@/components/heroify-knight/HeroifyKnightComponent.vue';
+import CrownIcon from '../icons/CrownIcon.vue';
 
 defineProps<{
 	knight: KnightEntity;
 }>();
+
+// TODO corrigir funcionamento do emit event
+async function handleHeroifyKnight(knight: KnightEntity) {
+	console.log('knight :>> ', knight);
+
+	// page.value = 0;
+	// searchByName.value = '';
+
+	// await searchKnights();
+}
 </script>
 
 <style lang="scss">
@@ -14,7 +26,7 @@ defineProps<{
 </style>
 
 <template>
-	<div class="knight-card">
+	<div class="knight-card" @heroifyKnight="handleHeroifyKnight">
 		<v-card class="mx-auto">
 			<template v-slot:title>
 				<span class="font-weight-black" :title="knight.name">{{
@@ -32,9 +44,18 @@ defineProps<{
 			</template>
 			<template v-slot:prepend>
 				<component
-					:is="knight.getAge() <= 7 ? SwordIcon : SwordCrossIcon"
+					:is="
+						knight.heroifiedAt
+							? CrownIcon
+							: knight.getAge() <= 7
+								? SwordIcon
+								: SwordCrossIcon
+					"
 					width="48px"
 				/>
+			</template>
+			<template v-slot:actions>
+				<HeroifyKnightComponent :knight="knight" />
 			</template>
 
 			<v-card-text class="bg-surface-light pt-4">

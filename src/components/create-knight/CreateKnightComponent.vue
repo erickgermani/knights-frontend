@@ -30,7 +30,7 @@ function formatDate(date: Date) {
 
 <template>
 	<div class="create-knight">
-		<div class="pa-4 text-center">
+		<div class="text-center">
 			<v-dialog v-model="dialog" max-width="600">
 				<template v-slot:activator="{ props: activatorProps }">
 					<v-btn

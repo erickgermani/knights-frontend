@@ -31,7 +31,7 @@ async function handleSubmit(event: SubmitEvent) {
 					name="name"
 					clearable
 				>
-					<template v-slot:prepend-inner><MagnifyIcon height="24" /></template>
+					<template v-slot:append-inner><MagnifyIcon height="24" /></template>
 				</v-text-field>
 				<v-btn
 					class="search-submit"
