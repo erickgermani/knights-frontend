@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { AxiosError } from 'axios';
 import HeaderComponent from '@/components/header/HeaderComponent.vue';
 import FooterComponent from '@/components/footer/FooterComponent.vue';
 import SearchComponent from './components/search/SearchComponent.vue';
@@ -10,12 +11,12 @@ import {
 	ApiService,
 	type SearchKnightsProps,
 	type SearchKnightsResponse,
+	type UpdateKnightProps,
 } from './api/ApiService';
 import { onMounted, ref, provide, type Ref, watch, nextTick } from 'vue';
 import type { KnightEntity } from './entities/KnightEntity';
 import { KnightMapper } from './mappers/KnightMapper';
 import { scrollToTarget } from './utils/scrollToTarget';
-// import { nextTick } from 'process';
 
 const apiService = ApiService.getInstance();
 
@@ -32,9 +33,7 @@ async function searchKnights(props: SearchKnightsProps = {}, scroll = false) {
 	loading.value = true;
 
 	try {
-		searchKnightsResult = (await apiService.searchKnights(
-			props,
-		)) as SearchKnightsResponse;
+		searchKnightsResult = await apiService.searchKnights(props);
 
 		if (searchKnightsResult.data === undefined) return [];
 
@@ -47,6 +46,12 @@ async function searchKnights(props: SearchKnightsProps = {}, scroll = false) {
 		);
 	} catch (error) {
 		searchKnightsFailed.value = true;
+
+		if (error instanceof AxiosError)
+			console.log(
+				'error.response.data.message :>> ',
+				error.response?.data.message,
+			);
 	} finally {
 		loading.value = false;
 
@@ -73,33 +78,74 @@ async function setPage(value: number) {
 	await searchKnights({ page: page.value, filterBy: searchByName.value }, true);
 }
 
-const knightToUpdate: Ref<KnightEntity | undefined> = ref();
-
-provide('knightToUpdate', knightToUpdate);
-
-const knightToHeroify: Ref<KnightEntity | undefined> = ref();
+const knightToHeroify: Ref<string | undefined> = ref();
 
 provide('knightToHeroify', knightToHeroify);
 
 const heroifyKnightFailed = ref(false);
 
-watch(knightToHeroify, async () => {
-	if (!knightToHeroify.value) return;
-
+async function heroifyKnight(knightId: string) {
 	heroifyKnightFailed.value = false;
 	loading.value = true;
 
 	try {
-		await apiService.heroifyKnight(knightToHeroify.value.id as string);
+		await apiService.heroifyKnight(knightId);
 
 		await searchKnights();
 
 		knightToHeroify.value = undefined;
-	} catch {
+	} catch (error) {
 		heroifyKnightFailed.value = true;
+
+		if (error instanceof AxiosError)
+			console.log(
+				'error.response.data.message :>> ',
+				error.response?.data.message,
+			);
 	} finally {
 		loading.value = false;
 	}
+}
+
+watch(knightToHeroify, async () => {
+	if (!knightToHeroify.value) return;
+
+	await heroifyKnight(knightToHeroify.value);
+});
+
+const knightToUpdate: Ref<UpdateKnightProps | undefined> = ref();
+
+provide('knightToUpdate', knightToUpdate);
+
+const updateKnightFailed = ref(false);
+
+async function updateKnight(props: UpdateKnightProps) {
+	updateKnightFailed.value = false;
+	loading.value = true;
+
+	try {
+		await apiService.updateKnight(props);
+
+		await searchKnights();
+
+		knightToUpdate.value = undefined;
+	} catch (error: any) {
+		updateKnightFailed.value = true;
+
+		if (error instanceof AxiosError)
+			console.log(
+				'error.response.data.message :>> ',
+				error.response?.data.message,
+			);
+	} finally {
+		loading.value = false;
+	}
+}
+
+watch(knightToUpdate, async () => {
+	if (!knightToUpdate.value) return;
+
+	await updateKnight(knightToUpdate.value);
 });
 
 const renderCreateKnightButton = ref(false);

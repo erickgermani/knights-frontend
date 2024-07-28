@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { UpdateKnightProps } from '@/api/ApiService';
 import type { KnightEntity } from '@/entities/KnightEntity';
-import { inject, ref, watch, type Ref } from 'vue';
+import { inject, nextTick, ref, watch, type Ref } from 'vue';
 
 const props = defineProps<{
 	knight: KnightEntity;
@@ -8,22 +9,26 @@ const props = defineProps<{
 
 const dialog = ref(false);
 
-const knightToUpdate: Ref<KnightEntity | undefined> | undefined =
+const nickname = ref('');
+
+const knightToUpdate: Ref<UpdateKnightProps | undefined> | undefined =
 	inject('knightToUpdate');
 
-const knightToHeroify: Ref<KnightEntity | undefined> | undefined =
-	inject('knightToHeroify');
-
-if (knightToHeroify) {
-	watch(knightToHeroify, () => {
-		if (knightToHeroify.value) return;
+if (knightToUpdate) {
+	watch(knightToUpdate, () => {
+		if (knightToUpdate.value) return;
 
 		dialog.value = false;
 	});
 }
 
-function handleConfirm() {
-	if (knightToHeroify) knightToHeroify.value = props.knight;
+async function handleConfirm() {
+	if (!knightToUpdate) return;
+
+	knightToUpdate.value = {
+		id: props.knight.id as string,
+		nickname: nickname.value,
+	};
 }
 </script>
 
@@ -39,10 +44,7 @@ function handleConfirm() {
 					<v-btn v-bind="activatorProps"> Atualizar </v-btn>
 				</template>
 
-				<v-card
-					title="Confirmar heroificação?"
-					:text="`Tem certeza que deseja mover ${knight.name} para o Hall dos Heróis? Essa ação é permanente e não pode ser desfeita.`"
-				>
+				<v-card :title="`Atualizar ${knight.name}`">
 					<template v-slot:actions>
 						<v-spacer></v-spacer>
 
@@ -50,6 +52,17 @@ function handleConfirm() {
 
 						<v-btn color="blue" @click="handleConfirm"> Confirmar </v-btn>
 					</template>
+					<v-card-text>
+						<v-row dense>
+							<v-col cols="12" md="12" sm="6">
+								<v-text-field
+									label="Novo apelido"
+									required
+									v-model="nickname"
+								></v-text-field>
+							</v-col>
+						</v-row>
+					</v-card-text>
 				</v-card>
 			</v-dialog>
 		</div>

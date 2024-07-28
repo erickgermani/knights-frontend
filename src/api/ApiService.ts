@@ -65,16 +65,6 @@ export type SearchKnightsResponse = {
 	};
 };
 
-export type RequestError = {
-	error: boolean;
-};
-
-export type ResponseError = {
-	statusCode: number;
-	error: string;
-	message: string;
-};
-
 type Endpoints = {
 	[key: string]: string | ((hostname: string) => string);
 	default: string;
@@ -117,87 +107,49 @@ export class ApiService {
 		return ApiService.instance;
 	}
 
-	async createKnight(
-		props: CreateKnightProps,
-	): Promise<CreateKnightResponse | RequestError> {
-		try {
-			const { data } = await this.axiosInstance.post('/v1/knights', props);
+	async createKnight(props: CreateKnightProps): Promise<CreateKnightResponse> {
+		const { data } = await this.axiosInstance.post('/v1/knights', props);
 
-			if (data.error) throw new Error();
+		if (data.error) throw new Error(data.message);
 
-			return data;
-		} catch {
-			return {
-				error: true,
-			};
-		}
+		return data;
 	}
 
-	async getKnight(id: string): Promise<GetKnightResponse | RequestError> {
-		try {
-			const { data } = await this.axiosInstance.get(`/v1/knights/${id}`);
+	async getKnight(id: string): Promise<GetKnightResponse> {
+		const { data } = await this.axiosInstance.get(`/v1/knights/${id}`);
 
-			if (data.error) throw new Error();
+		if (data.error) throw new Error(data.message);
 
-			return data;
-		} catch {
-			return {
-				error: true,
-			};
-		}
+		return data;
 	}
 
-	async updateKnight(
-		props: UpdateKnightProps,
-	): Promise<UpdateKnightResponse | RequestError> {
-		try {
-			const { data } = await this.axiosInstance.put(`/v1/knights/${props.id}`, {
-				nickname: props.nickname,
-			});
+	async updateKnight(props: UpdateKnightProps): Promise<UpdateKnightResponse> {
+		const { data } = await this.axiosInstance.put(`/v1/knights/${props.id}`, {
+			nickname: props.nickname,
+		});
 
-			if (data.error) throw new Error();
+		if (data.error) throw new Error(data.message);
 
-			return data;
-		} catch {
-			return {
-				error: true,
-			};
-		}
+		return data;
 	}
 
-	async heroifyKnight(id: string): Promise<void | RequestError> {
-		try {
-			const { data } = await this.axiosInstance.delete(`/v1/knights/${id}`);
-
-			if (data.error) throw new Error();
-
-			return data;
-		} catch {
-			return {
-				error: true,
-			};
-		}
+	async heroifyKnight(id: string): Promise<void> {
+		await this.axiosInstance.delete(`/v1/knights/${id}`);
 	}
 
 	async searchKnights(
 		props: SearchKnightsProps = {},
-	): Promise<SearchKnightsResponse | RequestError> {
-		try {
-			const queryParams = Object.entries(props)
-				.map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
-				.join('&');
+	): Promise<SearchKnightsResponse> {
+		const queryParams = Object.entries(props)
+			.map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+			.join('&');
 
-			const { data } = await this.axiosInstance.get(
-				`/v1/knights${queryParams ? '?' + queryParams : ''}`,
-			);
+		const { data } = await this.axiosInstance.get(
+			`/v1/knights${queryParams ? '?' + queryParams : ''}`,
+		);
 
-			if (data.error) throw new Error();
+		if (data.error) throw new Error(data.message);
 
-			return data;
-		} catch {
-			return {
-				error: true,
-			};
-		}
+		return data;
 	}
 }

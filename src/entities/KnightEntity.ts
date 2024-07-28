@@ -41,7 +41,7 @@ export class KnightEntity {
 
 	readonly id?: string;
 	readonly name: string;
-	readonly nickname: string;
+	private _nickname: string;
 	readonly birthday: Date;
 	readonly weapons: Array<Weapon>;
 	readonly attributes: Attributes;
@@ -56,7 +56,7 @@ export class KnightEntity {
 	constructor(props: KnightProps) {
 		this.id = props.id;
 		this.name = props.name;
-		this.nickname = props.nickname;
+		this._nickname = props.nickname;
 		this.birthday = props.birthday;
 		this.weapons = props.weapons;
 		this.attributes = props.attributes;
@@ -67,6 +67,18 @@ export class KnightEntity {
 		this.age = this.calculateAge();
 		this.attack = this.calculateAttack();
 		this.experience = this.calculateExperience();
+	}
+
+	get nickname(): string {
+		return this._nickname;
+	}
+
+	private set nickname(value: string) {
+		this._nickname = value;
+	}
+
+	updateNickname(value: string) {
+		this.nickname = value;
 	}
 
 	toJSON() {
