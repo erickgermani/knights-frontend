@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import MagnifyIcon from '../icons/MagnifyIcon.vue';
 
 const props = defineProps<{
 	setSearchByName: (value: string) => Promise<void>;

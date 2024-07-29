@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { UpdateKnightProps } from '@/api/ApiService';
 import type { KnightEntity } from '@/entities/KnightEntity';
-import { inject, nextTick, ref, watch, type Ref } from 'vue';
+import { inject, ref, watch, type Ref } from 'vue';
 import HeroifyKnightComponent from '../heroify-knight/HeroifyKnightComponent.vue';
 
 const props = defineProps<{

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Attributes, Weapon } from '@/entities/KnightEntity';
+import type { Attributes } from '@/entities/KnightEntity';
 import { ref, type Ref } from 'vue';
 
 const dialog = ref(false);
