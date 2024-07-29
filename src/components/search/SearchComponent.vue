@@ -1,18 +1,15 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import MagnifyIcon from '../icons/MagnifyIcon.vue';
 
 const props = defineProps<{
 	setSearchByName: (value: string) => Promise<void>;
 }>();
 
-async function handleSubmit(event: SubmitEvent) {
-	const form = event.target as HTMLFormElement;
+const name = ref('');
 
-	const nameField = form.querySelector(
-		'[name="name"]',
-	) as HTMLInputElement | null;
-
-	props.setSearchByName(nameField?.value ?? '');
+async function handleSubmit() {
+	props.setSearchByName(name.value);
 }
 </script>
 
@@ -28,7 +25,8 @@ async function handleSubmit(event: SubmitEvent) {
 					label="Nome"
 					placeholder="Busque pelo nome do cavaleiro"
 					variant="solo-filled"
-					name="name"
+					name="search-by-name"
+					v-model="name"
 					clearable
 				>
 				</v-text-field>

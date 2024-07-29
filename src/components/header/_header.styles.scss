@@ -4,9 +4,14 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		@media (max-width: 768px) {
+		@media (max-width: 1279px) {
 			display: block;
 			text-align: center;
+			.logo {
+				a {
+					justify-content: center;
+				}
+			}
 			.filter-by-heroes {
 				margin-top: 24px;
 			}

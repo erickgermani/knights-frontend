@@ -1,0 +1,370 @@
+{
+	"data": [
+		{
+			"id": "66a7ea34c12a0be271552d03",
+			"name": "Shari Stark",
+			"nickname": "Kristopher97",
+			"birthday": "1976-04-01T18:52:41.291Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Recycled Frozen Pants",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 18,
+				"constitution": 20,
+				"dexterity": 14,
+				"intelligence": 16,
+				"strength": 2,
+				"wisdom": 15
+			},
+			"keyAttribute": "constitution",
+			"createdAt": "2024-07-29T19:15:00.249Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cfe",
+			"name": "Josephine Ritchie",
+			"nickname": "Erin.Wisoky81",
+			"birthday": "1984-10-24T17:56:33.133Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Awesome Steel Hat",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 16,
+				"constitution": 11,
+				"dexterity": 12,
+				"intelligence": 16,
+				"strength": 3,
+				"wisdom": 0
+			},
+			"keyAttribute": "strength",
+			"createdAt": "2024-07-29T19:15:00.249Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf9",
+			"name": "Genevieve Schinner",
+			"nickname": "Raul.Corkery84",
+			"birthday": "1956-04-22T15:57:23.003Z",
+			"weapons": [
+				{
+					"attr": "wisdom",
+					"name": "Refined Cotton Fish",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 16,
+				"constitution": 7,
+				"dexterity": 4,
+				"intelligence": 6,
+				"strength": 7,
+				"wisdom": 1
+			},
+			"keyAttribute": "strength",
+			"createdAt": "2024-07-29T19:15:00.248Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cfc",
+			"name": "Josh Crist III",
+			"nickname": "Katelin.Hansen22",
+			"birthday": "1970-09-08T05:10:58.840Z",
+			"weapons": [
+				{
+					"attr": "wisdom",
+					"name": "Licensed Frozen Bike",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 6,
+				"constitution": 5,
+				"dexterity": 16,
+				"intelligence": 2,
+				"strength": 11,
+				"wisdom": 2
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T19:15:00.248Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cfd",
+			"name": "Angel Littel",
+			"nickname": "Shirley44",
+			"birthday": "1946-11-23T09:36:24.381Z",
+			"weapons": [
+				{
+					"attr": "constitution",
+					"name": "Recycled Rubber Mouse",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 4,
+				"constitution": 9,
+				"dexterity": 13,
+				"intelligence": 6,
+				"strength": 19,
+				"wisdom": 20
+			},
+			"keyAttribute": "intelligence",
+			"createdAt": "2024-07-29T19:15:00.248Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf8",
+			"name": "Glenda Cole",
+			"nickname": "Sibyl.Crist77",
+			"birthday": "1970-06-04T15:12:36.901Z",
+			"weapons": [
+				{
+					"attr": "constitution",
+					"name": "Sleek Concrete Shoes",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 14,
+				"constitution": 18,
+				"dexterity": 5,
+				"intelligence": 15,
+				"strength": 19,
+				"wisdom": 12
+			},
+			"keyAttribute": "dexterity",
+			"createdAt": "2024-07-29T19:15:00.248Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cfa",
+			"name": "Bridget Dicki Sr.",
+			"nickname": "Candido10",
+			"birthday": "1967-01-22T19:38:54.637Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Bespoke Concrete Pizza",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 14,
+				"constitution": 20,
+				"dexterity": 20,
+				"intelligence": 20,
+				"strength": 3,
+				"wisdom": 10
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T19:15:00.248Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cfb",
+			"name": "Belinda Metz",
+			"nickname": "Viva.Crooks24",
+			"birthday": "1980-05-02T21:06:48.713Z",
+			"weapons": [
+				{
+					"attr": "intelligence",
+					"name": "Handcrafted Rubber Tuna",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 20,
+				"constitution": 6,
+				"dexterity": 12,
+				"intelligence": 9,
+				"strength": 7,
+				"wisdom": 15
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T19:15:00.248Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf5",
+			"name": "Nettie Schmeler",
+			"nickname": "Obie_Denesik",
+			"birthday": "2023-04-19T06:38:34.407Z",
+			"weapons": [
+				{
+					"attr": "wisdom",
+					"name": "Recycled Concrete Mouse",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 0,
+				"constitution": 13,
+				"dexterity": 19,
+				"intelligence": 9,
+				"strength": 6,
+				"wisdom": 14
+			},
+			"keyAttribute": "dexterity",
+			"createdAt": "2024-07-29T19:15:00.247Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf6",
+			"name": "Frederick Walsh-Hauck",
+			"nickname": "Rozella3",
+			"birthday": "1973-02-21T12:46:04.387Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Incredible Cotton Gloves",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 10,
+				"constitution": 0,
+				"dexterity": 1,
+				"intelligence": 0,
+				"strength": 0,
+				"wisdom": 8
+			},
+			"keyAttribute": "strength",
+			"createdAt": "2024-07-29T19:15:00.247Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf4",
+			"name": "Kenneth Vandervort",
+			"nickname": "Nicolette_Muller29",
+			"birthday": "1951-08-02T18:21:19.904Z",
+			"weapons": [
+				{
+					"attr": "charisma",
+					"name": "Luxurious Concrete Soap",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 0,
+				"constitution": 20,
+				"dexterity": 17,
+				"intelligence": 13,
+				"strength": 4,
+				"wisdom": 9
+			},
+			"keyAttribute": "wisdom",
+			"createdAt": "2024-07-29T19:15:00.247Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf3",
+			"name": "Neil Hickle",
+			"nickname": "Darien77",
+			"birthday": "2015-02-09T15:54:09.184Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Handmade Cotton Mouse",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 0,
+				"constitution": 1,
+				"dexterity": 5,
+				"intelligence": 18,
+				"strength": 13,
+				"wisdom": 17
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T19:15:00.247Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf7",
+			"name": "Eula Connelly",
+			"nickname": "Clemens_Jacobs",
+			"birthday": "1959-04-22T05:47:11.989Z",
+			"weapons": [
+				{
+					"attr": "wisdom",
+					"name": "Luxurious Concrete Tuna",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 3,
+				"constitution": 19,
+				"dexterity": 9,
+				"intelligence": 2,
+				"strength": 16,
+				"wisdom": 12
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T19:15:00.247Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf0",
+			"name": "Doris Franecki III",
+			"nickname": "Joanie15",
+			"birthday": "2009-11-27T03:05:36.564Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Electronic Wooden Car",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 2,
+				"constitution": 13,
+				"dexterity": 16,
+				"intelligence": 5,
+				"strength": 12,
+				"wisdom": 15
+			},
+			"keyAttribute": "constitution",
+			"createdAt": "2024-07-29T19:15:00.246Z"
+		},
+		{
+			"id": "66a7ea34c12a0be271552cf1",
+			"name": "Marcus Torphy",
+			"nickname": "Brooks4",
+			"birthday": "1957-12-13T05:12:55.387Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Refined Concrete Shirt",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 16,
+				"constitution": 11,
+				"dexterity": 19,
+				"intelligence": 12,
+				"strength": 11,
+				"wisdom": 5
+			},
+			"keyAttribute": "constitution",
+			"createdAt": "2024-07-29T19:15:00.246Z"
+		}
+	],
+	"meta": {
+		"currentPage": 2,
+		"perPage": 15,
+		"lastPage": 5,
+		"total": 62
+	}
+}

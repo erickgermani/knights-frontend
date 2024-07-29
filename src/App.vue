@@ -48,11 +48,7 @@ async function searchKnights(props: SearchKnightsProps = {}, scroll = false) {
 	} catch (error) {
 		searchKnightsFailed.value = true;
 
-		if (error instanceof AxiosError)
-			console.log(
-				'error.response.data.message :>> ',
-				error.response?.data.message,
-			);
+		if (error instanceof AxiosError) alert(error.response?.data.message);
 	} finally {
 		loading.value = false;
 

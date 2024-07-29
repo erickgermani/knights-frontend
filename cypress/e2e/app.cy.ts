@@ -4,12 +4,15 @@ import listKnightsAfterUpdate from '../fixtures/list-knights-after-update.json';
 import listKnightsAfterHeroify from '../fixtures/list-knights-after-heroify.json';
 import createKnight from '../fixtures/create-knight.json';
 import listKnightsAfterCreate from '../fixtures/list-knights-after-create.json';
+import searchKnights from '../fixtures/search-knights.json';
+import filterByHeroes from '../fixtures/filter-by-heroes.json';
+import pageTwo from '../fixtures/page-two.json';
 
-const activeIntercepts = true;
+const interceptRequests = true;
 
 describe('App test', () => {
 	beforeEach(() => {
-		if (activeIntercepts) {
+		if (interceptRequests) {
 			cy.intercept('GET', '*/knights', {
 				statusCode: 200,
 				body: listKnights,
@@ -28,25 +31,40 @@ describe('App test', () => {
 				statusCode: 201,
 				body: createKnight,
 			});
+
+			cy.intercept('GET', '*/knights*filterBy=Courtney*', {
+				statusCode: 200,
+				body: searchKnights,
+			});
+
+			cy.intercept('GET', '*/knights*filter=heroes', {
+				statusCode: 200,
+				body: filterByHeroes,
+			});
+
+			cy.intercept('GET', '*/knights?page=2*', {
+				statusCode: 200,
+				body: pageTwo,
+			});
 		}
 	});
 
-	it.skip('visits the app root url', () => {
+	it('visits the app root url', () => {
 		cy.visit('/');
 		cy.contains('.logo a', 'Knights Challenge');
 	});
 
-	it.skip('must contains knight cards container', () => {
+	it('must contains knight cards container', () => {
 		cy.visit('/');
 		cy.get('.knight-cards');
 	});
 
-	it.skip('must render knight cards', () => {
+	it('must render knight cards', () => {
 		cy.visit('/');
 		cy.get('.knight-card');
 	});
 
-	it.skip('must update knight nickname', () => {
+	it('must update knight nickname', () => {
 		cy.visit('/');
 		cy.get('.knight-card .update-knight button').first().click();
 		cy.get('[name=update-nickname]').type('new nickname');
@@ -61,13 +79,13 @@ describe('App test', () => {
 		cy.get('.knight-card').first().contains('td', 'new nickname');
 	});
 
-	it.skip('must heroify knight', () => {
+	it('must heroify knight', () => {
 		cy.visit('/');
 		cy.get('.knight-card .update-knight button').first().click();
 
 		cy.get('.heroify-knight button').click();
 
-		if (activeIntercepts)
+		if (interceptRequests)
 			cy.intercept('GET', '*/knights', {
 				statusCode: 200,
 				body: listKnightsAfterHeroify,
@@ -78,7 +96,8 @@ describe('App test', () => {
 		cy.get('.knight-card').first().contains('title', 'crown');
 	});
 
-	it.skip('must create new knight', () => {
+	// caso o interceptRequests seja false, este teste pode falhar caso já exista um cavaleiro cadastrado com o mesmo nickname
+	it('must create new knight', () => {
 		cy.visit('/');
 
 		cy.get('.create-knight button').first().click();
@@ -114,7 +133,7 @@ describe('App test', () => {
 		cy.get('.v-list-item').first().click();
 		cy.get('.confirm-create-weapon').click();
 
-		if (activeIntercepts)
+		if (interceptRequests)
 			cy.intercept('GET', '*/knights', {
 				statusCode: 200,
 				body: listKnightsAfterCreate,
@@ -123,5 +142,31 @@ describe('App test', () => {
 		cy.get('.confirm-create-knight').click();
 
 		cy.get('.knight-card .v-card-title').first().contains('knight name');
+	});
+
+	it('must search knights', () => {
+		cy.visit('/');
+
+		cy.get('.search [name=search-by-name').type('Courtney');
+		cy.get('.search .search-submit').click();
+
+		cy.get('.knight-card .v-card-title').first().contains('Courtney');
+	});
+
+	it('must filter by heroes', () => {
+		cy.visit('/');
+
+		cy.get('.filter-by-heroes').click();
+
+		cy.get('.knight-card').first().contains('title', 'crown');
+		cy.get('.knight-card .v-card-title').first().contains('Courtney');
+	});
+
+	it('should go to page 2', () => {
+		cy.visit('/');
+
+		cy.get('.v-pagination__item').first().next().first().click();
+
+		cy.get('.knight-card');
 	});
 });

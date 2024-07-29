@@ -106,8 +106,6 @@ describe('CreateKnightDto', () => {
 			createdAt: new Date(),
 		});
 
-		console.log('validateResponse :>> ', validateResponse);
-
 		expect(validateResponse.valid).toEqual(false);
 		expect(validateResponse.messages).toContain(
 			'name must be a non-empty string',

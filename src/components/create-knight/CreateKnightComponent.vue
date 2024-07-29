@@ -31,8 +31,6 @@ function formatDate(date: Date) {
 }
 
 function createWeapon(weapon: Weapon) {
-	console.log(0);
-	console.log('weapon :>> ', weapon);
 	weapons.value.push(weapon);
 }
 
