@@ -15,9 +15,15 @@ $ npm install
 
 ## Rodando o front-end
 
+Garanta que a porta 8080 esteja livre.
+
 ```bash
 npm run dev
 ```
+
+## Acessando o front-end
+
+Através do client de sua preferência, acesse a aplicação em [http://localhost:8080](http://localhost:8080).
 
 ## Testes
 
@@ -29,8 +35,14 @@ $ npm run test:unit
 $ npm run test:e2e
 ```
 
+## Formatação
+
+```bash
+$ npm run format
+```
+
 ## Lint
 
 ```bash
-npm run lint
+$ npm run lint
 ```

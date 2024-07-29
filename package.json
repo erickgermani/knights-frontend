@@ -1,6 +1,7 @@
 {
 	"name": "knights-frontend",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"description": "Repositório contendo o código fonte do front-end do Knights Challenge. Construído com Vue.js + Vite.",
 	"private": true,
 	"type": "module",
 	"author": "erickgermani13@gmail.com",
