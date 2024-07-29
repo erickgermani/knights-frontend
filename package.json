@@ -42,6 +42,7 @@
 		"eslint-plugin-vue": "^9.23.0",
 		"jsdom": "^24.1.0",
 		"npm-run-all2": "^6.2.0",
+		"pdfkit": "^0.15.0",
 		"prettier": "^3.2.5",
 		"sass": "^1.77.8",
 		"start-server-and-test": "^2.0.4",

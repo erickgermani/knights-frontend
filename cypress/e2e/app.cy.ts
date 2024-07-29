@@ -12,6 +12,8 @@ const interceptRequests = true;
 
 describe('App test', () => {
 	beforeEach(() => {
+		cy.viewport('macbook-16');
+
 		if (interceptRequests) {
 			cy.intercept('GET', '*/knights', {
 				statusCode: 200,

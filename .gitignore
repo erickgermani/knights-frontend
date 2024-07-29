@@ -30,6 +30,11 @@ coverage
 
 *.tsbuildinfo
 
+# env files
 .env.development
 .env.production
 .env.test
+
+# storyboard
+storyboard
+create-storyboard.js

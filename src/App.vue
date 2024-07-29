@@ -61,8 +61,8 @@ const totalOfPages = ref(1);
 function getSearchMeta() {
 	return {
 		page: page.value,
-		filterBy: searchByName.value,
-		filter: filterByHeroes.value ? 'heroes' : undefined,
+		filterBy: searchByName.value ? searchByName.value : '',
+		filter: filterByHeroes.value ? 'heroes' : '',
 	};
 }
 

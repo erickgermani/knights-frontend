@@ -7,6 +7,10 @@ Repositório contendo o código fonte do front-end do [Knights Challenge](./Chal
 - Node.js
 - NPM
 
+## Documentação
+
+Acesse o documento com telas clicando [aqui](./storyboard.pdf).
+
 ## Instalação
 
 ```bash
