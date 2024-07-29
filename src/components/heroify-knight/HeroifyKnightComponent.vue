@@ -32,7 +32,7 @@ function handleConfirm() {
 	<div class="heroify-knight">
 		<v-dialog v-model="dialog" max-width="400">
 			<template v-slot:activator="{ props: activatorProps }">
-				<v-btn v-bind="activatorProps"> Atualizar </v-btn>
+				<v-btn color="purple" v-bind="activatorProps"> Heroificar </v-btn>
 			</template>
 
 			<v-card

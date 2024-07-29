@@ -2,7 +2,15 @@
 	padding: 0 24px;
 	> div {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
+		align-items: center;
+		@media (max-width: 768px) {
+			display: block;
+			text-align: center;
+			.filter-by-heroes {
+				margin-top: 24px;
+			}
+		}
 		.logo {
 			a {
 				display: flex;

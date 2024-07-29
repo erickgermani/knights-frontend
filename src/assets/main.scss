@@ -16,9 +16,8 @@
 	scroll-behavior: smooth;
 }
 
-.v-application__wrap {
-	main {
-		// background-image: url('@/assets/img/background.jpg');
-		// background-size: cover;
+html {
+	body {
+		overflow-x: hidden;
 	}
 }

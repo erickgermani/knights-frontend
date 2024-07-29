@@ -9,6 +9,7 @@ import KnightCardsComponent from '@/components/knight-cards/KnightCardsComponent
 import LoaderComponent from './components/loader/LoaderComponent.vue';
 import {
 	ApiService,
+	type CreateKnightProps,
 	type SearchKnightsProps,
 	type SearchKnightsResponse,
 	type UpdateKnightProps,
@@ -61,13 +62,12 @@ async function searchKnights(props: SearchKnightsProps = {}, scroll = false) {
 
 const totalOfPages = ref(1);
 
-const searchByName: Ref<string> = ref('');
-
-async function setSearchByName(value: string) {
-	searchByName.value = value;
-	page.value = 1;
-
-	await searchKnights({ page: page.value, filterBy: searchByName.value }, true);
+function getSearchMeta() {
+	return {
+		page: page.value,
+		filterBy: searchByName.value,
+		filter: filterByHeroes.value ? 'heroes' : undefined,
+	};
 }
 
 const page = ref(1);
@@ -75,7 +75,25 @@ const page = ref(1);
 async function setPage(value: number) {
 	page.value = value;
 
-	await searchKnights({ page: page.value, filterBy: searchByName.value }, true);
+	await searchKnights(getSearchMeta(), true);
+}
+
+const searchByName: Ref<string> = ref('');
+
+async function setSearchByName(value: string) {
+	searchByName.value = value;
+	page.value = 1;
+
+	await searchKnights(getSearchMeta(), true);
+}
+
+const filterByHeroes = ref(false);
+
+async function setFilterByHeroes(value: boolean) {
+	filterByHeroes.value = value;
+	page.value = 1;
+
+	await searchKnights(getSearchMeta(), true);
 }
 
 const knightToHeroify: Ref<string | undefined> = ref();
@@ -94,14 +112,12 @@ async function heroifyKnight(knightId: string) {
 		await searchKnights();
 
 		knightToHeroify.value = undefined;
+
+		knightToUpdate.value = undefined;
 	} catch (error) {
 		heroifyKnightFailed.value = true;
 
-		if (error instanceof AxiosError)
-			console.log(
-				'error.response.data.message :>> ',
-				error.response?.data.message,
-			);
+		if (error instanceof AxiosError) alert(error.response?.data.message);
 	} finally {
 		loading.value = false;
 	}
@@ -132,11 +148,7 @@ async function updateKnight(props: UpdateKnightProps) {
 	} catch (error: any) {
 		updateKnightFailed.value = true;
 
-		if (error instanceof AxiosError)
-			console.log(
-				'error.response.data.message :>> ',
-				error.response?.data.message,
-			);
+		if (error instanceof AxiosError) alert(error.response?.data.message);
 	} finally {
 		loading.value = false;
 	}
@@ -148,14 +160,45 @@ watch(knightToUpdate, async () => {
 	await updateKnight(knightToUpdate.value);
 });
 
-const renderCreateKnightButton = ref(false);
+const knightToCreate: Ref<CreateKnightProps | undefined> = ref();
+
+provide('knightToCreate', knightToCreate);
+
+const createKnightFailed = ref(false);
+
+async function createKnight(props: CreateKnightProps) {
+	createKnightFailed.value = false;
+	loading.value = true;
+
+	try {
+		await apiService.createKnight(props);
+
+		await searchKnights();
+
+		knightToCreate.value = undefined;
+	} catch (error: any) {
+		createKnightFailed.value = true;
+
+		if (error instanceof AxiosError) alert(error.response?.data.message);
+	} finally {
+		loading.value = false;
+	}
+}
+
+watch(knightToCreate, async () => {
+	if (!knightToCreate.value) return;
+
+	await createKnight(knightToCreate.value);
+});
+
+const renderTeleportComponents = ref(false);
 
 onMounted(async () => {
 	await searchKnights();
 
 	await nextTick();
 
-	renderCreateKnightButton.value = true;
+	renderTeleportComponents.value = true;
 });
 </script>
 
@@ -171,7 +214,16 @@ onMounted(async () => {
 		<FooterComponent />
 	</v-app>
 	<LoaderComponent :loading="loading" />
-	<Teleport v-if="renderCreateKnightButton" to=".create-knight-container">
+	<Teleport v-if="renderTeleportComponents" to=".filter-by-heroes-container">
+		<v-btn
+			color="purple"
+			class="filter-by-heroes"
+			text="Filtrar por heróis"
+			:variant="!filterByHeroes ? 'tonal' : undefined"
+			@click="setFilterByHeroes(!filterByHeroes)"
+		></v-btn>
+	</Teleport>
+	<Teleport v-if="renderTeleportComponents" to=".create-knight-container">
 		<CreateKnightComponent />
 	</Teleport>
 </template>

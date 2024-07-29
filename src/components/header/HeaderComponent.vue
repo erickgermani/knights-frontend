@@ -8,6 +8,7 @@
 	<header class="header">
 		<v-container>
 			<div class="logo"><a href="/" class="honk">KNIGHTS CHALLENGE</a></div>
+			<div class="filter-by-heroes-container"></div>
 		</v-container>
 	</header>
 </template>

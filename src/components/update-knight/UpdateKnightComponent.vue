@@ -2,6 +2,7 @@
 import type { UpdateKnightProps } from '@/api/ApiService';
 import type { KnightEntity } from '@/entities/KnightEntity';
 import { inject, nextTick, ref, watch, type Ref } from 'vue';
+import HeroifyKnightComponent from '../heroify-knight/HeroifyKnightComponent.vue';
 
 const props = defineProps<{
 	knight: KnightEntity;
@@ -47,6 +48,7 @@ async function handleConfirm() {
 				<v-card :title="`Atualizar ${knight.name}`">
 					<template v-slot:actions>
 						<v-spacer></v-spacer>
+						<HeroifyKnightComponent :knight="knight" />
 
 						<v-btn color="red" @click="dialog = false"> Cancelar </v-btn>
 

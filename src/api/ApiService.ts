@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export type CreateKnightProps = Omit<
 	KnightProps,
-	'id' | 'heroifiedAt' | 'createdAt' | 'updatedAt'
+	'id' | 'heroifiedAt' | 'updatedAt'
 >;
 
 export type CreateKnightResponse = {

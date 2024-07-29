@@ -111,15 +111,15 @@ export class KnightEntity {
 	private calculateAge(reference: Date = new Date()) {
 		let years = reference.getFullYear() - this.birthday.getFullYear();
 
-		const referencetMonth = reference.getMonth();
+		const referenceMonth = reference.getMonth();
 		const initialMonth = this.birthday.getMonth();
 
-		const referencetDay = reference.getDate();
+		const referenceDay = reference.getDate();
 		const initialDay = this.birthday.getDate();
 
 		if (
-			referencetMonth < initialMonth ||
-			(referencetMonth === initialMonth && referencetDay < initialDay)
+			referenceMonth < initialMonth ||
+			(referenceMonth === initialMonth && referenceDay < initialDay)
 		)
 			years -= 1;
 
