@@ -44,7 +44,9 @@ function handleConfirm() {
 
 					<v-btn color="red" @click="dialog = false"> Cancelar </v-btn>
 
-					<v-btn color="blue" @click="handleConfirm"> Confirmar </v-btn>
+					<v-btn color="blue" @click="handleConfirm" class="confirm-heroify">
+						Confirmar
+					</v-btn>
 				</template>
 			</v-card>
 		</v-dialog>

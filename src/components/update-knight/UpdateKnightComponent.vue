@@ -52,7 +52,13 @@ async function handleConfirm() {
 
 						<v-btn color="red" @click="dialog = false"> Cancelar </v-btn>
 
-						<v-btn color="blue" @click="handleConfirm"> Confirmar </v-btn>
+						<v-btn
+							color="blue"
+							@click="handleConfirm"
+							class="confirm-update-nickname"
+						>
+							Confirmar
+						</v-btn>
 					</template>
 					<v-card-text>
 						<v-row dense>
@@ -61,6 +67,7 @@ async function handleConfirm() {
 									label="Novo apelido"
 									required
 									v-model="nickname"
+									name="update-nickname"
 								></v-text-field>
 							</v-col>
 						</v-row>

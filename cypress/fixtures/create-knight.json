@@ -1,0 +1,26 @@
+{
+	"data": {
+		"id": "66a7f213aa6a113528693481",
+		"name": "knight name",
+		"nickname": "knight nickname",
+		"birthday": "2021-05-06T00:00:00.000Z",
+		"weapons": [
+			{
+				"name": "weapon name",
+				"mod": 0,
+				"attr": "constitution",
+				"equipped": true
+			}
+		],
+		"attributes": {
+			"charisma": 1,
+			"constitution": 2,
+			"dexterity": 1,
+			"intelligence": 1,
+			"strength": 1,
+			"wisdom": 1
+		},
+		"keyAttribute": "dexterity",
+		"createdAt": "2024-07-29T19:48:35.170Z"
+	}
+}

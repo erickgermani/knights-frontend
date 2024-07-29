@@ -1,0 +1,394 @@
+{
+	"data": [
+		{
+			"id": "66a7f213aa6a113528693481",
+			"name": "knight name",
+			"nickname": "knight nickname",
+			"birthday": "2021-05-06T00:00:00.000Z",
+			"weapons": [
+				{
+					"name": "weapon name",
+					"mod": 0,
+					"attr": "constitution",
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 1,
+				"constitution": 2,
+				"dexterity": 1,
+				"intelligence": 1,
+				"strength": 1,
+				"wisdom": 1
+			},
+			"keyAttribute": "dexterity",
+			"createdAt": "2024-07-29T19:48:35.170Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016d2",
+			"name": "Courtney Carroll-Douglas",
+			"nickname": "Margret4",
+			"birthday": "1950-05-28T09:58:26.517Z",
+			"weapons": [
+				{
+					"attr": "intelligence",
+					"name": "Oriental Steel Salad",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 18,
+				"constitution": 17,
+				"dexterity": 7,
+				"intelligence": 12,
+				"strength": 13,
+				"wisdom": 2
+			},
+			"keyAttribute": "intelligence",
+			"createdAt": "2024-07-29T18:03:37.043Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016d1",
+			"name": "Hugh Herman",
+			"nickname": "Bettye36",
+			"birthday": "1962-11-17T13:36:12.995Z",
+			"weapons": [
+				{
+					"attr": "intelligence",
+					"name": "Recycled Wooden Chips",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 4,
+				"constitution": 8,
+				"dexterity": 5,
+				"intelligence": 15,
+				"strength": 13,
+				"wisdom": 18
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T18:03:37.043Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016d0",
+			"name": "George Rice",
+			"nickname": "Cary_Hudson",
+			"birthday": "1995-02-24T04:49:03.945Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Gorgeous Frozen Fish",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 7,
+				"constitution": 2,
+				"dexterity": 16,
+				"intelligence": 11,
+				"strength": 1,
+				"wisdom": 16
+			},
+			"keyAttribute": "intelligence",
+			"createdAt": "2024-07-29T18:03:37.042Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016cd",
+			"name": "Anne Cassin MD",
+			"nickname": "Madelynn_Haag52",
+			"birthday": "2003-04-03T22:32:35.643Z",
+			"weapons": [
+				{
+					"attr": "constitution",
+					"name": "Fantastic Bronze Chips",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 15,
+				"constitution": 11,
+				"dexterity": 2,
+				"intelligence": 15,
+				"strength": 2,
+				"wisdom": 9
+			},
+			"keyAttribute": "wisdom",
+			"createdAt": "2024-07-29T18:03:37.042Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016ce",
+			"name": "Aaron Jaskolski",
+			"nickname": "Fern14",
+			"birthday": "1996-06-09T01:20:04.660Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Elegant Bronze Shoes",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 14,
+				"constitution": 4,
+				"dexterity": 10,
+				"intelligence": 7,
+				"strength": 3,
+				"wisdom": 10
+			},
+			"keyAttribute": "dexterity",
+			"createdAt": "2024-07-29T18:03:37.042Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016cf",
+			"name": "Garrett Huel",
+			"nickname": "Reggie15",
+			"birthday": "1978-05-15T00:41:45.953Z",
+			"weapons": [
+				{
+					"attr": "constitution",
+					"name": "Intelligent Frozen Pants",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 20,
+				"constitution": 13,
+				"dexterity": 8,
+				"intelligence": 4,
+				"strength": 5,
+				"wisdom": 5
+			},
+			"keyAttribute": "wisdom",
+			"createdAt": "2024-07-29T18:03:37.042Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016cc",
+			"name": "Joan Torp",
+			"nickname": "Aliyah9",
+			"birthday": "2018-01-04T14:09:51.187Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Refined Steel Computer",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 4,
+				"constitution": 16,
+				"dexterity": 5,
+				"intelligence": 1,
+				"strength": 8,
+				"wisdom": 1
+			},
+			"keyAttribute": "constitution",
+			"createdAt": "2024-07-29T18:03:37.042Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016ca",
+			"name": "Judith Friesen",
+			"nickname": "Lawrence.Boehm29",
+			"birthday": "2016-07-31T23:30:48.870Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Oriental Concrete Pants",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 10,
+				"constitution": 4,
+				"dexterity": 10,
+				"intelligence": 13,
+				"strength": 8,
+				"wisdom": 17
+			},
+			"keyAttribute": "dexterity",
+			"createdAt": "2024-07-29T18:03:37.041Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016c8",
+			"name": "Ruby Hermann",
+			"nickname": "Agustina_Howell94",
+			"birthday": "1972-04-14T15:52:04.995Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Gorgeous Granite Shirt",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 2,
+				"constitution": 18,
+				"dexterity": 7,
+				"intelligence": 19,
+				"strength": 4,
+				"wisdom": 16
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T18:03:37.041Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016cb",
+			"name": "Derrick Schuster",
+			"nickname": "Lewis37",
+			"birthday": "1995-11-24T07:32:33.923Z",
+			"weapons": [
+				{
+					"attr": "wisdom",
+					"name": "Unbranded Bronze Sausages",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 5,
+				"constitution": 0,
+				"dexterity": 5,
+				"intelligence": 0,
+				"strength": 3,
+				"wisdom": 9
+			},
+			"keyAttribute": "constitution",
+			"createdAt": "2024-07-29T18:03:37.041Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016c9",
+			"name": "Antonia Cormier",
+			"nickname": "Tiara54",
+			"birthday": "1965-04-29T23:16:59.937Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Generic Frozen Fish",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 9,
+				"constitution": 13,
+				"dexterity": 13,
+				"intelligence": 3,
+				"strength": 3,
+				"wisdom": 14
+			},
+			"keyAttribute": "dexterity",
+			"createdAt": "2024-07-29T18:03:37.041Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016c6",
+			"name": "Melba Rice",
+			"nickname": "Lilly.Legros98",
+			"birthday": "1959-06-25T22:14:06.142Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Handcrafted Bronze Chair",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 1,
+				"constitution": 13,
+				"dexterity": 17,
+				"intelligence": 9,
+				"strength": 14,
+				"wisdom": 9
+			},
+			"keyAttribute": "charisma",
+			"createdAt": "2024-07-29T18:03:37.041Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016c7",
+			"name": "Jessie Cassin",
+			"nickname": "Melisa43",
+			"birthday": "1957-06-03T07:42:36.771Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Licensed Rubber Pizza",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 1,
+				"constitution": 15,
+				"dexterity": 17,
+				"intelligence": 4,
+				"strength": 5,
+				"wisdom": 17
+			},
+			"keyAttribute": "intelligence",
+			"createdAt": "2024-07-29T18:03:37.041Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016c3",
+			"name": "Reginald Dietrich",
+			"nickname": "Marlen98",
+			"birthday": "1946-11-07T05:31:54.591Z",
+			"weapons": [
+				{
+					"attr": "strength",
+					"name": "Sleek Frozen Pizza",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 5,
+				"constitution": 3,
+				"dexterity": 9,
+				"intelligence": 4,
+				"strength": 9,
+				"wisdom": 2
+			},
+			"keyAttribute": "wisdom",
+			"createdAt": "2024-07-29T18:03:37.040Z"
+		},
+		{
+			"id": "66a7d97910ca3c52b6b016c4",
+			"name": "Ms. Constance Greenfelder",
+			"nickname": "Berenice_Welch",
+			"birthday": "1971-05-08T06:56:45.361Z",
+			"weapons": [
+				{
+					"attr": "dexterity",
+					"name": "Intelligent Fresh Shoes",
+					"mod": 3,
+					"equipped": true
+				}
+			],
+			"attributes": {
+				"charisma": 5,
+				"constitution": 16,
+				"dexterity": 4,
+				"intelligence": 10,
+				"strength": 3,
+				"wisdom": 10
+			},
+			"keyAttribute": "intelligence",
+			"createdAt": "2024-07-29T18:03:37.040Z"
+		}
+	],
+	"meta": {
+		"currentPage": 1,
+		"perPage": 15,
+		"lastPage": 5,
+		"total": 61
+	}
+}

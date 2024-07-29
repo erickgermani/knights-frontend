@@ -1,0 +1,27 @@
+{
+	"data": {
+		"id": "66a7d97910ca3c52b6b016d2",
+		"name": "Courtney Carroll-Douglas",
+		"nickname": "test",
+		"birthday": "1950-05-28T09:58:26.517Z",
+		"weapons": [
+			{
+				"attr": "intelligence",
+				"name": "Oriental Steel Salad",
+				"mod": 3,
+				"equipped": true
+			}
+		],
+		"attributes": {
+			"charisma": 18,
+			"constitution": 17,
+			"dexterity": 7,
+			"intelligence": 12,
+			"strength": 13,
+			"wisdom": 2
+		},
+		"keyAttribute": "intelligence",
+		"createdAt": "2024-07-29T18:03:37.043Z",
+		"updatedAt": "2024-07-29T19:02:59.755Z"
+	}
+}

@@ -58,7 +58,12 @@ async function handleSubmit() {
 
 						<v-btn color="red" @click="dialog = false"> Cancelar </v-btn>
 
-						<v-btn color="blue" type="submit" form="create-weapon">
+						<v-btn
+							color="blue"
+							type="submit"
+							form="create-weapon"
+							class="confirm-create-weapon"
+						>
 							Criar arma
 						</v-btn>
 					</template>
@@ -70,6 +75,7 @@ async function handleSubmit() {
 										label="Nome*"
 										required
 										v-model="name"
+										name="name"
 									></v-text-field>
 								</v-col>
 								<v-col cols="12" md="12" sm="6">
@@ -78,12 +84,14 @@ async function handleSubmit() {
 										required
 										v-model="mod"
 										type="number"
+										name="mod"
 									></v-text-field>
 								</v-col>
 								<v-col cols="12" md="12" sm="6">
 									<v-select
 										:items="attributes"
 										label="Atributo*"
+										name="attributes"
 										required
 										variant="solo-filled"
 										v-model="attr"
@@ -93,6 +101,7 @@ async function handleSubmit() {
 									<v-select
 										:items="['Sim', 'Não']"
 										label="Equipado*"
+										name="equipped"
 										required
 										variant="solo-filled"
 										v-model="equipped"

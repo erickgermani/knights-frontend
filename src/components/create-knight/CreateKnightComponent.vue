@@ -103,7 +103,10 @@ async function handleSubmit(event: SubmitEvent) {
 				</template>
 
 				<v-card prepend-icon="mdi-account" title="Novo cavaleiro">
-					<v-card-text class="px-4" style="height: 600px; overflow: auto">
+					<v-card-text
+						class="px-4"
+						style="height: 600px; max-height: 75vh; overflow: auto"
+					>
 						<form
 							id="create-knight"
 							@submit.prevent="(evt) => handleSubmit(evt as SubmitEvent)"
@@ -224,6 +227,7 @@ async function handleSubmit(event: SubmitEvent) {
 							variant="tonal"
 							type="submit"
 							form="create-knight"
+							class="confirm-create-knight"
 						></v-btn>
 					</v-card-actions>
 				</v-card>
