@@ -33,6 +33,9 @@ $ npm run test:unit
 
 # e2e tests
 $ npm run test:e2e
+
+# e2e tests in development mode
+$ npm run test:e2e:dev
 ```
 
 ## Formatação
