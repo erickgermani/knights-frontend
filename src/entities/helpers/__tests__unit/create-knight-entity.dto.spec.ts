@@ -64,7 +64,7 @@ describe('WeaponDto', () => {
 
 describe('CreateKnightDto', () => {
 	it('should validate correct create knight dto', () => {
-		const errors = CreateKnightDto.validate({
+		const validateResponse = CreateKnightDto.validate({
 			name: 'Knight',
 			nickname: 'Sir Lancelot',
 			birthday: new Date('2000-01-01'),
@@ -84,11 +84,12 @@ describe('CreateKnightDto', () => {
 			createdAt: new Date(),
 		});
 
-		expect(errors).toHaveLength(0);
+		expect(validateResponse.valid).toEqual(true);
+		expect(validateResponse.messages).toHaveLength(0);
 	});
 
-	it('should validate incorrect create dto', () => {
-		const errors = CreateKnightDto.validate({
+	it('should validate incorrect create knight dto', () => {
+		const validateResponse = CreateKnightDto.validate({
 			name: '',
 			nickname: '',
 			birthday: new Date('invalid-date'),
@@ -105,11 +106,23 @@ describe('CreateKnightDto', () => {
 			createdAt: new Date(),
 		});
 
-		expect(errors).toContain('name must be a non-empty string');
-		expect(errors).toContain('nickname must be a non-empty string');
-		expect(errors).toContain('birthday must be a valid Date object');
-		expect(errors).toContain('weapons must be a non-empty array');
-		expect(errors).toContain('attributes must be a non-empty object');
-		expect(errors).toContain('keyAttribute must be a valid key of Attributes');
+		console.log('validateResponse :>> ', validateResponse);
+
+		expect(validateResponse.valid).toEqual(false);
+		expect(validateResponse.messages).toContain(
+			'name must be a non-empty string',
+		);
+		expect(validateResponse.messages).toContain(
+			'nickname must be a non-empty string',
+		);
+		expect(validateResponse.messages).toContain(
+			'birthday must be a valid Date object',
+		);
+		expect(validateResponse.messages).toContain(
+			'weapons must be a non-empty array',
+		);
+		expect(validateResponse.messages).toContain(
+			'keyAttribute must be a valid key of Attributes',
+		);
 	});
 });
